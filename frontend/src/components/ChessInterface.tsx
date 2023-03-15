@@ -33,17 +33,20 @@ export const ChessInterface = () => {
         let arr = game.split(' ');
         let splittedGame: string[] = [];
         for (let i = 0; i < arr.length; i += 2) {
-            splittedGame.push(`${arr[i]} ${arr[i + 1]}`);
+            const tmpArr = arr[i].split('.');
+            splittedGame.push(`${tmpArr[0]}.`);
+            splittedGame.push(`${tmpArr[1]}`);
+            splittedGame.push(`${arr[i + 1]}`);
         }
-        setGameSplitted(arr);
+        setGameSplitted(splittedGame);
 
     }, [game]);
 
     return (
         <main className="chess-interface">
-            <Board gameBoard={gameBoard}  />
+            <Board gameBoard={gameBoard} />
             <History iterator={iterator} game={gameSplitted} />
-            <Buttons nextMove={nextMove} prevMove={prevMove} />
+            <Buttons nextMove={nextMove} prevMove={prevMove} firstMove={iterator == 0} lastMove={false} />
         </main>
     )
 }
