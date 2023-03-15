@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-type Game = {
+export type Game = {
     gameId: number,
     opponent: string,
     date: string,
@@ -9,7 +9,7 @@ type Game = {
     comments: string
 }
 
-export const GamesList: React.FC = () => {
+export const GamesList: React.FC = (): any => {
     const [games, setGames] = useState<Game[]>([]);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export const GamesList: React.FC = () => {
     return (
         games.map(g => {
             return (
-                <Link to="/game-viewer" state={{ g }}><h3>{g.opponent}</h3></Link>)
+                <Link to="/game-viewer" state={{ data: g }}><h3>{g.opponent}</h3></Link>)
         })
 
     )

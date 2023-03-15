@@ -1,8 +1,16 @@
 import React from "react";
 import './ChessTitle.css';
 
-export const ChessTitle: React.FC = () => {
+type TitleProps = {
+    opp: string,
+    date: string
+}
+
+export const ChessTitle: React.FC<TitleProps> = ({ opp, date }) => {
     return (
-        <h2 className="chess__title">Chess game vs. Lidia</h2>
+        <>
+            <h2 className="chess__title">{opp}</h2>
+            <p>Played at </p>
+        </>
     )
 }
