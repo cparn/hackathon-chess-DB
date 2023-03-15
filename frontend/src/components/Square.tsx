@@ -1,5 +1,5 @@
 import React from 'react';
-import { getClassNameForPiece } from '../utils2';
+import { getClassNameForPiece } from '../utils';
 import './Square.css';
 
 type SquareProps = {
