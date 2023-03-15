@@ -37,10 +37,9 @@ export const makeMove = (board: number[][], game: string, turn: number, isBlack:
 
 const findMoveString = (game: string, turn: number, isBlack: boolean) => {
     const moveString = game.split(' ');
-    let moveIndex = turn * 2;
-    if (isBlack) moveIndex++;
-    let move = moveString[moveIndex];
-    return isBlack ? move : move.slice(2 + Math.log10((turn + 1)));
+    let move = moveString[turn];
+    const slice = turn < 18 ? 2 : 3;
+    return isBlack ? move : move.slice(slice);
 }
 
 const findMoveType = (move: string) => {
