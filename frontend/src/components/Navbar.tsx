@@ -10,7 +10,6 @@ export const Navbar: React.FC = () => {
                 <Link to="/">Home</Link>
                 <Link to="/games">Games</Link>
                 <Link to="/about">About</Link>
-                <Link to="/testGame">Test</Link>
             </div>
         </header>
     )

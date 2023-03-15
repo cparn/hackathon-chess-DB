@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<Splash />} />
         <Route path="/games" element={<GamesList />} />
         <Route path="/about" element={<About />} />
-        <Route path="/testGame" element={<ChessInterface />} />
+        <Route path="/game-viewer" element={<ChessInterface />} />
       </Routes>
     </main>
   )

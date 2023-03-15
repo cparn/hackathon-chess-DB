@@ -75,12 +75,19 @@ namespace backend.Controllers
         // POST: api/ChessGame
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ChessGame>> PostChessGame(ChessGame chessGame)
+        public async Task<ActionResult<ChessGame>> PostChessGame(ChessGameRequest gameRequest)
         {
-            _context.ChessGame.Add(chessGame);
+            var newGame = new ChessGame()
+            {
+                Opponent = gameRequest.Opponent,
+                Date = gameRequest.Date,
+                GamePGN = gameRequest.GamePGN,
+                Comments = gameRequest.Comments
+            };
+            var response = _context.ChessGame.Add(newGame);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetChessGame", new { id = chessGame.GameId }, chessGame);
+            return CreatedAtAction("GetChessGame", new { id = response.Entity.GameId }, response.Entity);
         }
 
         // DELETE: api/ChessGame/5
