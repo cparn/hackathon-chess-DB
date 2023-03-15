@@ -31,7 +31,6 @@ export const makeMove = (board: number[][], game: string, turn: number, isBlack:
     const destinationSquare = findDestinationSquare(moveString, moveType);
     const pieceToRemove = findPieceToRemove(moveString, moveType, board, isBlack, destinationSquare);
     movePiece(board, pieceToRemove, destinationSquare);
-    console.log({ pieceToRemove, destinationSquare });
     return board;
 }
 
