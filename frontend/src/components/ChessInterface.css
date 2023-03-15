@@ -1,0 +1,4 @@
+.chess-interface {
+    display: flex;
+    flex-wrap: wrap;
+}

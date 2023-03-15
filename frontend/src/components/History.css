@@ -1,0 +1,13 @@
+.chess-interface__history {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 400px;
+    overflow-y: scroll;
+    width: 20vw;
+}
+
+.chess-interface__history__line {
+    padding: 0 15px;
+    margin: 0;
+    text-align: left;
+}
