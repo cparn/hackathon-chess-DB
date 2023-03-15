@@ -1,0 +1,69 @@
+.board__square {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.light {
+    background-color: bisque;
+}
+
+.dark {
+    background-color: burlywood;
+}
+
+.pawn {
+    background-image: url('../assets/pawn.png');
+    background-size: 25px;
+}
+
+.knight {
+    background-image: url('../assets/knight.png');
+    background-size: 35px;
+}
+
+.bishop {
+    background-image: url('../assets/bishop.png');
+    background-size: 50px;
+}
+
+.rook {
+    background-image: url('../assets/rook.png');
+}
+
+.queen {
+    background-image: url('../assets/queen.png');
+}
+
+.king {
+    background-image: url('../assets/king.png');
+}
+
+.darkpawn {
+    background-image: url('../assets/pawn2.png');
+}
+
+.darkknight {
+    background-image: url('../assets/knight2.png');
+    background-size: 35px;
+}
+
+.darkbishop {
+    background-image: url('../assets/bishop2.png');
+    background-size: 35px;
+}
+
+.darkrook {
+    background-image: url('../assets/rook2.png');
+}
+
+.darkqueen {
+    background-image: url('../assets/queen2.png');
+}
+
+.darkking {
+    background-image: url('../assets/king2.png');
+}

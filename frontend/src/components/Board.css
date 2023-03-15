@@ -1,0 +1,16 @@
+.board {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+}
+
+
+.board__row {
+    display: flex;
+    flex-flow: row-reverse;
+}
+
+.board--pieces {
+    position: absolute;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+}
