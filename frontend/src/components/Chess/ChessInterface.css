@@ -1,7 +1,8 @@
 .chess-interface {
+    margin: 20px 0;
     width: 80vw;
-    display: grid;
-    grid-template-columns: 70% 20%;
+    gap: 30px 100px;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }

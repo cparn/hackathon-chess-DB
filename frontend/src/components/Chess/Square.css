@@ -1,7 +1,7 @@
 .board__square {
     position: relative;
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     background-size: 40px;
     background-repeat: no-repeat;
     background-position: center;

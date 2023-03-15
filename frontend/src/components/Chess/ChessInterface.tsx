@@ -4,6 +4,7 @@ import { History } from './History';
 import './ChessInterface.css';
 import { initialGame, makeMove } from '../../chessEngine';
 import { Buttons } from './Buttons';
+import { ChessTitle } from './ChessTitle';
 
 export const ChessInterface = () => {
 
@@ -44,12 +45,14 @@ export const ChessInterface = () => {
 
     return (
         <main className="chess-interface">
+            <ChessTitle />
             <Board gameBoard={gameBoard} />
             <History iterator={iterator} game={gameSplitted} />
             <Buttons nextMove={nextMove}
                 prevMove={prevMove}
                 firstMove={iterator == 0}
                 lastMove={iterator == gameSplitted.length / 3 * 2 - 1} />
+            {/* <ChessInfo /> */}
         </main>
     )
 }
