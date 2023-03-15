@@ -66,7 +66,6 @@ const findMoveType = (move: string) => {
 }
 
 const findPieceToRemove = (move: string, mt: MoveType, board: number[][], isBlack: boolean, destinationSquare: number[]) => {
-    console.log(move);
     const mod = isBlack ? -1 : 1;
     const row = destinationSquare[0];
     const col = destinationSquare[1];

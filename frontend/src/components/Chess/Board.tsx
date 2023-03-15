@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { initialGame, makeMove } from '../chessEngine';
+import { initialGame, makeMove } from '../../chessEngine';
 import './Board.css';
 import { Square } from './Square';
 

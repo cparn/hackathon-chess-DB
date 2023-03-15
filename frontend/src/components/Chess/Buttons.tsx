@@ -12,8 +12,8 @@ type ButtonProps = {
 export const Buttons: React.FC<ButtonProps> = ({ nextMove, prevMove, firstMove, lastMove }) => {
     return (
         <div>
-            <button onClick={prevMove} className={`${firstMove ? ' inactive' : ''}`}>Prev</button>
-            <button onClick={nextMove}>Next</button>
+            <button onClick={prevMove} className={`chess-interface__button ${firstMove ? ' inactive' : ''}`}>Prev</button>
+            <button onClick={nextMove} className={`chess-interface__button ${lastMove ? ' inactive' : ''}`}>Next</button>
         </div>
     )
 }

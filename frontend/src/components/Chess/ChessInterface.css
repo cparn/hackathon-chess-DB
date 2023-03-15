@@ -1,0 +1,7 @@
+.chess-interface {
+    width: 80vw;
+    display: grid;
+    grid-template-columns: 70% 20%;
+    flex-wrap: wrap;
+    justify-content: center;
+}

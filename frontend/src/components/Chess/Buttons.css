@@ -1,5 +1,10 @@
+.chess-interface__button {
+    margin: 20px;
+}
+
 .inactive {
     color: lightgrey;
     cursor: not-allowed;
     pointer-events: none;
+    user-select: none;
 }

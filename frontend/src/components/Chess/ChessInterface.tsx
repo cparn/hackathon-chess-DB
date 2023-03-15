@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Board } from './Board'
 import { History } from './History';
 import './ChessInterface.css';
-import { initialGame, makeMove } from '../chessEngine';
+import { initialGame, makeMove } from '../../chessEngine';
 import { Buttons } from './Buttons';
 
 export const ChessInterface = () => {
@@ -46,7 +46,10 @@ export const ChessInterface = () => {
         <main className="chess-interface">
             <Board gameBoard={gameBoard} />
             <History iterator={iterator} game={gameSplitted} />
-            <Buttons nextMove={nextMove} prevMove={prevMove} firstMove={iterator == 0} lastMove={false} />
+            <Buttons nextMove={nextMove}
+                prevMove={prevMove}
+                firstMove={iterator == 0}
+                lastMove={iterator == gameSplitted.length / 3 * 2 - 1} />
         </main>
     )
 }
