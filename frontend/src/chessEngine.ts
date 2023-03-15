@@ -34,7 +34,7 @@ export const makeMove = (board: number[][], game: string, turn: number, isBlack:
     return board;
 }
 
-const findMoveString = (game: string, turn: number, isBlack: boolean) => {
+export const findMoveString = (game: string, turn: number, isBlack: boolean) => {
     const moveString = game.split(' ');
     let move = moveString[turn];
     const slice = turn < 18 ? 2 : 3;
