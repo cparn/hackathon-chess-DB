@@ -68,7 +68,7 @@ export const ChessInterface: React.FC<testprop> = ({ optpgn }) => {
     }, [game]);
 
     return (
-        <main className="chess-interface">
+        <div className="chess-interface">
             {optpgn == undefined && <ChessTitle opp={data.opponent} date={data.date} loc={data.location} />}
             <Board gameBoard={gameBoard} />
             <History iterator={iterator} game={gameSplitted} />
@@ -77,6 +77,6 @@ export const ChessInterface: React.FC<testprop> = ({ optpgn }) => {
                 firstMove={iterator == 0}
                 lastMove={iterator - (iterator % 2 == 0 ? 1 : 0) == gameSplitted.length / 3 * 2 - 1} />
             {/* <ChessInfo /> */}
-        </main>
+        </div>
     )
 }

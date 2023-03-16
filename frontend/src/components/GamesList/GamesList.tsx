@@ -37,11 +37,11 @@ export const GamesList: React.FC = (): any => {
     }
 
     return (
-        <main className="games-list">
+        <div className="games-list">
             {games.map(g => {
                 return (
                     <GameCard game={g} putGame={putGame} deleteGame={deleteGame} />)
             })}
-        </main>
+        </div>
     )
 }

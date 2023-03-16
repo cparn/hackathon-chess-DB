@@ -11,6 +11,13 @@ type FormState = {
     gamePGN: string
 }
 
+type ErrorType = {
+    Location: string[] | undefined,
+    Date: string[] | undefined,
+    Opponent: string[] | undefined,
+    GamePGN: string[] | undefined
+}
+
 export const AddGame = () => {
     const [error, setError] = useState(false);
     const [formState, setFormState] = useState<FormState>({
@@ -19,6 +26,12 @@ export const AddGame = () => {
         location: '',
         comments: '',
         gamePGN: ''
+    });
+    const [errorMessage, setErrorMessage] = useState<ErrorType>({
+        Location: undefined,
+        Date: undefined,
+        Opponent: undefined,
+        GamePGN: undefined
     });
     const [preview, setPreview] = useState(false);
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -36,6 +49,22 @@ export const AddGame = () => {
             body: JSON.stringify(formState)
         });
         console.log(postResponse);
+    }
+    const getErrors = () => {
+        const res: string[] = [];
+        if (errorMessage.Date != undefined) {
+            res.push(errorMessage.Date[0]);
+        }
+        if (errorMessage.Location != undefined) {
+            res.push(errorMessage.Location[0]);
+        }
+        if (errorMessage.Opponent != undefined) {
+            res.push(errorMessage.Opponent[0]);
+        }
+        if (errorMessage.GamePGN != undefined) {
+            res.push(errorMessage.GamePGN[0]);
+        }
+        return res;
     }
 
     return (
