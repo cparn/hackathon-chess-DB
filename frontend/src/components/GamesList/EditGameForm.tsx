@@ -3,7 +3,8 @@ import { Game } from './GamesList';
 import './EditGameForm.css';
 
 type EditGameFormProps = {
-    game: Game
+    game: Game,
+    putGame: (game: Game) => void
 }
 
 type FormState = {
@@ -19,7 +20,7 @@ type ErrorType = {
     Opponent: string[] | undefined
 }
 
-export const EditGameForm: React.FC<EditGameFormProps> = ({ game }) => {
+export const EditGameForm: React.FC<EditGameFormProps> = ({ game, putGame }) => {
     const [formState, setFormState] = useState<FormState>({
         opponent: game.opponent,
         date: game.date,
@@ -41,7 +42,7 @@ export const EditGameForm: React.FC<EditGameFormProps> = ({ game }) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const body = {
+        const body: Game = {
             gameId: game.gameId,
             opponent: formState.opponent,
             location: formState.location,
@@ -56,7 +57,9 @@ export const EditGameForm: React.FC<EditGameFormProps> = ({ game }) => {
             },
             body: JSON.stringify(body)
         });
+        console.log(putResponse);
         const result = await putResponse.json();
+        console.log(result);
         if (result.status != 204) {
             const errors = result.errors as ErrorType;
             setError(true);
@@ -64,6 +67,9 @@ export const EditGameForm: React.FC<EditGameFormProps> = ({ game }) => {
             setTimeout(() => {
                 setError(false);
             }, 4000);
+        } else {
+            console.log('hello');
+            putGame(body);
         }
     }
     const getErrors = () => {

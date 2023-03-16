@@ -5,10 +5,11 @@ import './GameCard.css'
 import { EditGameForm } from './EditGameForm'
 
 type GameCardProps = {
-    game: Game
+    game: Game,
+    putGame: (game: Game) => void
 }
 
-export const GameCard: React.FC<GameCardProps> = ({ game }) => {
+export const GameCard: React.FC<GameCardProps> = ({ game , putGame}) => {
 
     const [edit, setEdit] = useState(false);
 
@@ -32,7 +33,7 @@ export const GameCard: React.FC<GameCardProps> = ({ game }) => {
         return (
             <div className='game-card'>
                 <img onClick={onEditClick} className="game-card__edit" src="edit.svg" />
-                <EditGameForm game={game}/>
+                <EditGameForm game={game} putGame={putGame}/>
             </div>
         )
     }
