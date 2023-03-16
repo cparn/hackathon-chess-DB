@@ -11,5 +11,6 @@
 .game-card__edit {
     position: relative;
     width: 40px;
-    left: 47%;
+    left: 45%;
+    top: 10px;
 }

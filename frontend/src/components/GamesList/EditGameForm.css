@@ -1,0 +1,22 @@
+.edit-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.edit-form__field {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    margin: 5px 5px;
+}
+
+.edit-form input {
+    width: 70%;
+}
+
+.edit-form button {
+    padding: 10px;
+    margin: 10px;
+}
