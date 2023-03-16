@@ -9,13 +9,21 @@ type GameCardProps = {
     putGame: (game: Game) => void
 }
 
-export const GameCard: React.FC<GameCardProps> = ({ game , putGame}) => {
+export const GameCard: React.FC<GameCardProps> = ({ game, putGame }) => {
 
     const [edit, setEdit] = useState(false);
+    const [success, setSucces] = useState(false);
 
     const onEditClick = (e: React.MouseEvent<HTMLElement>) => {
         e.preventDefault();
         setEdit(!edit);
+    }
+    const onSuccess = () => {
+        setSucces(true);
+        setTimeout(() => {
+            setSucces(false);
+            setEdit(false);
+        }, 2000);
     }
     if (!edit) {
         return (
@@ -29,11 +37,18 @@ export const GameCard: React.FC<GameCardProps> = ({ game , putGame}) => {
                     <p>{game.date}</p>
                 </div>
             </Link>)
-    } else {
+    } if (success) {
+        return (
+            <div className="game-card">
+                <h2 className="success-message">Successfully updated game info.</h2>
+            </div>
+        )
+    }
+    else {
         return (
             <div className='game-card'>
                 <img onClick={onEditClick} className="game-card__edit" src="edit.svg" />
-                <EditGameForm game={game} putGame={putGame}/>
+                <EditGameForm game={game} putGame={putGame} onSuccess={onSuccess} />
             </div>
         )
     }

@@ -24,9 +24,10 @@ export const GamesList: React.FC = (): any => {
     }, [])
 
     const putGame = (putgame: Game) => {
-        console.log(putgame);
         const i = games.map(g => g.gameId).indexOf(putgame.gameId);
-        games[i] = { ...putgame };
+        const newArr = [...games];
+        newArr[i] = putgame;
+        setGames(newArr);
     }
 
     return (

@@ -43,8 +43,6 @@ namespace backend.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutChessGame(int id, ChessGame chessGame)
         {
-            Response.Headers.Add("Access-Control-Allow-Origin", "\"*\"");
-            Response.Headers.Add("Access-Control-Allow-Credentials", "true");
             if (id != chessGame.GameId)
             {
                 return BadRequest();
@@ -67,7 +65,6 @@ namespace backend.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
