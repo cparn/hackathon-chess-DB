@@ -76,6 +76,7 @@ namespace backend.Controllers
             {
                 Opponent = gameRequest.Opponent,
                 Date = gameRequest.Date,
+                Location = gameRequest.Location,
                 GamePGN = gameRequest.GamePGN,
                 Comments = gameRequest.Comments
             };

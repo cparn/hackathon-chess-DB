@@ -9,6 +9,8 @@ public class ChessGameRequest
     [Required]
     public string Date { get; set; }
     [Required]
+    public string Location { get; set; }
+    [Required]
     public string GamePGN { get; set; }
     public string? Comments { get; set; }
 }
