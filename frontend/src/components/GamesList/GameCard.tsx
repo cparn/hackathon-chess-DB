@@ -47,7 +47,7 @@ export const GameCard: React.FC<GameCardProps> = ({ game, putGame }) => {
     else {
         return (
             <div className='game-card'>
-                <img onClick={onEditClick} className="game-card__edit" src="edit.svg" />
+                <img onClick={onEditClick} className="game-card__edit" src="back.svg" />
                 <EditGameForm game={game} putGame={putGame} onSuccess={onSuccess} />
             </div>
         )

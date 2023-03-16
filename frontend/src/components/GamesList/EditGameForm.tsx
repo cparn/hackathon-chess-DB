@@ -126,7 +126,7 @@ export const EditGameForm: React.FC<EditGameFormProps> = ({ game, putGame, onSuc
                         onChange={handleInputChange}>
                     </input>
                 </div>
-                {error && <p>{getErrors().map(m => <p>{m}</p>)}</p>}
+                {error && <div>{getErrors().map(m => <p>{m}</p>)}</div>}
                 {!error && <button type="submit">Submit</button>}
             </form>
         </>
