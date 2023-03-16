@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './AddGame.css'
+import { ChessInterface } from './Chess/ChessInterface'
 import { Game } from './GamesList/GamesList'
 
 type FormState = {
@@ -16,7 +17,6 @@ type GameRequest = {
 
 export const AddGame = () => {
     const [error, setError] = useState(false);
-
     const [formState, setFormState] = useState<FormState>({
         opponent: '',
         date: '',
@@ -24,6 +24,7 @@ export const AddGame = () => {
         comments: '',
         gamePGN: ''
     });
+    const [preview, setPreview] = useState(false);
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         e.preventDefault();
         const { name, value } = e.target;
@@ -42,7 +43,7 @@ export const AddGame = () => {
     }
 
     return (
-        <div className="addgame-card">
+        <main className="addgame-card">
             <h2>Add game</h2>
             <form className="addgame-card__form" onSubmit={handleSubmit}>
                 <div className="addgame-card__field">
@@ -92,7 +93,15 @@ export const AddGame = () => {
                 </div>
                 {error && <div>error</div>}
                 {!error && <button type="submit">Submit</button>}
+                <button onClick={() => setPreview(!preview)}>Preview</button>
             </form>
-        </div>
+            {preview &&
+                <div className="game-popup">
+                    <img src="close.svg" className="game-popup__close" onClick={() => setPreview(false)} />
+                    <h2>PGN preview</h2>
+                    < ChessInterface optpgn={formState.gamePGN} />
+                </div>
+            }
+        </main>
     )
 }

@@ -39,3 +39,8 @@
 .success-message {
     margin: 100px 0;
 }
+
+.confirmation-box button {
+    margin:30px 15px;
+    width:20%;
+}

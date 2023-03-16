@@ -30,16 +30,18 @@ export const GamesList: React.FC = (): any => {
         setGames(newArr);
     }
     const deleteGame = async (gameId: number) => {
-        
-
+        const i = games.map(g => g.gameId).indexOf(gameId);
+        const newArr = [...games];
+        newArr.splice(i, 1);
+        setGames(newArr);
     }
 
     return (
-        <div className="games-list">
+        <main className="games-list">
             {games.map(g => {
                 return (
                     <GameCard game={g} putGame={putGame} deleteGame={deleteGame} />)
             })}
-        </div>
+        </main>
     )
 }

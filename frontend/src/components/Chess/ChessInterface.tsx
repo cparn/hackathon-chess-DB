@@ -8,18 +8,30 @@ import { ChessTitle } from './ChessTitle';
 import { useLocation } from 'react-router-dom';
 import { Game } from '../GamesList/GamesList';
 
-export const ChessInterface = () => {
+type testprop = {
+    optpgn?: string
+}
 
+export const ChessInterface: React.FC<testprop> = ({ optpgn }) => {
     const location = useLocation();
-    const data: Game = location.state?.data;
-    if (data == null) return (
+    let data: Game = location.state?.data;
+    if (data == null && optpgn == null) return (
         <div>
             <h1>404</h1>
             <h2>The developer didn't have time to route this properly</h2>
             <h3>Try to access games from the Games page</h3>
         </div>
     );
-
+    if (optpgn != undefined) {
+        data = {
+            gameId: 0,
+            opponent: '',
+            date: '',
+            location: '',
+            comments: '',
+            gamePGN: optpgn!
+        };
+    }
     const [game, setGame] = useState(data.gamePGN);
     const [iterator, setIterator] = useState(0);
     const [gameBoard, setGameBoard] = useState<number[][]>(initialGame);
@@ -57,13 +69,13 @@ export const ChessInterface = () => {
 
     return (
         <main className="chess-interface">
-            <ChessTitle opp={data.opponent} date={data.date} loc={data.location} />
+            {optpgn == undefined && <ChessTitle opp={data.opponent} date={data.date} loc={data.location} />}
             <Board gameBoard={gameBoard} />
             <History iterator={iterator} game={gameSplitted} />
             <Buttons nextMove={nextMove}
                 prevMove={prevMove}
                 firstMove={iterator == 0}
-                lastMove={iterator == gameSplitted.length / 3 * 2 - 1} />
+                lastMove={iterator - (iterator % 2 == 0 ? 1 : 0) == gameSplitted.length / 3 * 2 - 1} />
             {/* <ChessInfo /> */}
         </main>
     )

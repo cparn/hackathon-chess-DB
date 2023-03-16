@@ -25,12 +25,39 @@
 }
 
 .addgame-card button {
-    width: 20vw;
+    width: 15vw;
     padding: 10px;
-    margin: 20px 0 20px;
+    margin: 20px 10px 20px;
 }
 
 .addgame-card__field--pgn {
     height: 100px;
     width: 70%;
+}
+
+.game-popup {
+    width: 80vw;
+    background-color: white;
+    top: 20vh;
+    padding: 15px 0 5px;
+    position: absolute;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.game-popup h2 {
+    margin-top: -45px;
+    font-size: xx-large;
+}
+
+.game-popup__close {
+    position: relative;
+    width: 60px;
+    left: 44%;
+    top: 5px;
+}
+
+.game-popup__close:hover {
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(200deg) brightness(118%) contrast(119%);
 }

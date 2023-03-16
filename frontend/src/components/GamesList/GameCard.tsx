@@ -13,7 +13,7 @@ type GameCardProps = {
 export const GameCard: React.FC<GameCardProps> = ({ game, putGame, deleteGame }) => {
 
     const [edit, setEdit] = useState(false);
-    const [success, setSucces] = useState(false);
+    const [success, setSucces] = useState('');
     const [del, setDel] = useState(false);
 
     const onEditClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -31,25 +31,30 @@ export const GameCard: React.FC<GameCardProps> = ({ game, putGame, deleteGame })
         const delResponse = await fetch(`http://localhost:5172/api/ChessGame/${game.gameId}`, {
             method: 'DELETE',
         });
-        if (delResponse.status != 200) {
-
-        } else {
-            deleteGame(game.gameId);
-        }
-
+        await onSuccess();
+        deleteGame(game.gameId);
     }
-    const onSuccess = () => {
-        setSucces(true);
+    const onSuccess = async () => {
+        if (edit) setSucces('Successfully updated game info.');
+        if (del) setSucces('Successfully deleted game from database.');
         setTimeout(() => {
-            setSucces(false);
+            setSucces('');
             setEdit(false);
+            setDel(false);
         }, 2000);
+    }
+    if (success != '') {
+        return (
+            <div className="game-card">
+                <h2 className="success-message">{success}</h2>
+            </div>
+        )
     }
     if (del) {
         return (
             <div className="game-card">
                 <div className="confirmation-box">
-                    Are you sure?
+                    <h2>Are you sure?</h2>
                     <button onClick={onDeleteCancel}>No</button>
                     <button onClick={onDeleteConfirm}>Yes</button>
                 </div>
@@ -69,14 +74,7 @@ export const GameCard: React.FC<GameCardProps> = ({ game, putGame, deleteGame })
                     <p>{game.date}</p>
                 </div>
             </Link>)
-    } if (success) {
-        return (
-            <div className="game-card">
-                <h2 className="success-message">Successfully updated game info.</h2>
-            </div>
-        )
-    }
-    else {
+    } else {
         return (
             <div className='game-card'>
                 <img onClick={onEditClick} className="game-card__edit" src="back.svg" />
