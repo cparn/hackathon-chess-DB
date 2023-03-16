@@ -6,7 +6,7 @@ import { initialGame, makeMove } from '../../chessEngine';
 import { Buttons } from './Buttons';
 import { ChessTitle } from './ChessTitle';
 import { useLocation } from 'react-router-dom';
-import { Game } from '../GamesList';
+import { Game } from '../GamesList/GamesList';
 
 export const ChessInterface = () => {
 

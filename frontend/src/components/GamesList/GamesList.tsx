@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GameCard } from "./GameCard";
 
 export type Game = {
     gameId: number,
@@ -24,7 +25,7 @@ export const GamesList: React.FC = (): any => {
     return (
         games.map(g => {
             return (
-                <Link to="/game-viewer" state={{ data: g }}><h3>{g.opponent}</h3></Link>)
+                <GameCard game={g} />)
         })
 
     )

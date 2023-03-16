@@ -5,7 +5,7 @@ import { initialGame } from './chessEngine';
 import { About } from './components/About';
 import { Board } from './components/Chess/Board';
 import { ChessInterface } from './components/Chess/ChessInterface';
-import { GamesList } from './components/GamesList';
+import { GamesList } from './components/GamesList/GamesList';
 import { Navbar } from './components/Navbar';
 import { Splash } from './components/Splash';
 
