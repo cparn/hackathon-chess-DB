@@ -1,5 +1,9 @@
 .chess__title {
-    width: 100%;
-    margin: 0;
+    width: 80vw;
     flex-grow: 1;
+}
+
+.chess__title__h2 {
+    margin: 0;
+    padding: 0;
 }

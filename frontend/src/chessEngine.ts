@@ -165,10 +165,19 @@ const findPieceToRemove = (move: string, mt: MoveType, board: number[][], isBlac
             }
         }
     }
-    if (mt == MoveType.queenMove || mt == MoveType.kingMove) {
+    if (mt == MoveType.queenMove) {
         for (let y = 0; y < 8; y++) {
             for (let x = 0; x < 8; x++) {
                 if (board[y][x] == 5 * mod) {
+                    return [y, x];
+                }
+            }
+        }
+    }
+    if (mt == MoveType.kingMove) {
+        for (let y = 0; y < 8; y++) {
+            for (let x = 0; x < 8; x++) {
+                if (board[y][x] == 6 * mod) {
                     return [y, x];
                 }
             }
@@ -236,7 +245,7 @@ const castle = (board: number[][], mt: MoveType, isBlack: boolean) => {
         board[7][6] = -6;
         return;
     }
-    if (mt == MoveType.castleLong && !isBlack) {
+    if (mt == MoveType.castleLong && isBlack) {
         board[7][0] = 0;
         board[7][4] = 0;
         board[7][3] = -4;

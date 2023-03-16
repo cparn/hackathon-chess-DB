@@ -50,7 +50,7 @@ export const ChessInterface = () => {
 
     return (
         <main className="chess-interface">
-            <ChessTitle opp={data.opponent} date={data.date} comments={data.comments}/>
+            <ChessTitle opp={data.opponent} date={data.date} loc={'stockholm'} />
             <Board gameBoard={gameBoard} />
             <History iterator={iterator} game={gameSplitted} />
             <Buttons nextMove={nextMove}
