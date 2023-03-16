@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { ReactElement, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './AddGame.css'
 import { ChessInterface } from './Chess/ChessInterface'
 import { Game } from './GamesList/GamesList'
@@ -33,7 +34,10 @@ export const AddGame = () => {
         Opponent: undefined,
         GamePGN: undefined
     });
+    const [game, setGame] = useState<Game>();
     const [preview, setPreview] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const navigate = useNavigate();
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         e.preventDefault();
         const { name, value } = e.target;
@@ -48,7 +52,24 @@ export const AddGame = () => {
             },
             body: JSON.stringify(formState)
         });
-        console.log(postResponse);
+        if (postResponse.status != 201) {
+            const result = await postResponse.json();
+            console.log(result);
+            const errors = result.errors as ErrorType;
+            setError(true);
+            setErrorMessage(errors);
+            setTimeout(() => {
+                setError(false);
+            }, 4000);
+        } else {
+            const result = await postResponse.json() as Game;
+            setGame(result)
+            setSuccess(true);
+        }
+    }
+    const handlePreviews = (e: any) => {
+        e.preventDefault();
+        setPreview(!preview);
     }
     const getErrors = () => {
         const res: string[] = [];
@@ -66,7 +87,16 @@ export const AddGame = () => {
         }
         return res;
     }
-
+    if (success) {
+        return (
+            <div className="addgame-card">
+                <Link to="/game-viewer" state={{ data: game }}>
+                    <h1>Success!</h1>
+                    <h2> Click anywhere to continue.</h2>
+                </Link>
+            </div>
+        )
+    }
     return (
         <div className="addgame-card">
             <h2>Add game</h2>
@@ -116,9 +146,9 @@ export const AddGame = () => {
                         onChange={handleInputChange}>
                     </textarea>
                 </div>
-                {error && <div>error</div>}
+                {error && <div>{getErrors().map(m => <p>{m}</p>)}</div>}
                 {!error && <button type="submit">Submit</button>}
-                <button onClick={() => setPreview(!preview)}>Preview</button>
+                {!error && <button onClick={handlePreviews}>Preview</button>}
             </form>
             {preview &&
                 <div className="game-popup">
