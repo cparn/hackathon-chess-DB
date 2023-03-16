@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Game } from './GamesList';
 import './EditGameForm.css';
 
@@ -12,6 +12,13 @@ type FormState = {
     location: string,
     comments: string
 }
+
+type ErrorType = {
+    Location: string[] | undefined,
+    Date: string[] | undefined,
+    Opponent: string[] | undefined
+}
+
 export const EditGameForm: React.FC<EditGameFormProps> = ({ game }) => {
     const [formState, setFormState] = useState<FormState>({
         opponent: game.opponent,
@@ -19,6 +26,12 @@ export const EditGameForm: React.FC<EditGameFormProps> = ({ game }) => {
         location: game.location,
         comments: game.comments
     });
+    const [errorMessage, setErrorMessage] = useState<ErrorType>({
+        Location: undefined,
+        Date: undefined,
+        Opponent: undefined
+    });
+    const [error, setError] = useState(false);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
@@ -44,14 +57,32 @@ export const EditGameForm: React.FC<EditGameFormProps> = ({ game }) => {
             body: JSON.stringify(body)
         });
         const result = await putResponse.json();
-        if(result.error){
-            alert('bad');
+        if (result.status != 204) {
+            const errors = result.errors as ErrorType;
+            setError(true);
+            setErrorMessage(errors);
+            setTimeout(() => {
+                setError(false);
+            }, 4000);
         }
+    }
+    const getErrors = () => {
+        const res: string[] = [];
+        if (errorMessage.Date != undefined) {
+            res.push(errorMessage.Date[0]);
+        }
+        if (errorMessage.Location != undefined) {
+            res.push(errorMessage.Location[0]);
+        }
+        if (errorMessage.Opponent != undefined) {
+            res.push(errorMessage.Opponent[0]);
+        }
+        return res;
     }
 
     return (
         <>
-            <h3>Edit game</h3>
+            <h3>Edit game info</h3>
             <form className="edit-form" onSubmit={handleSubmit}>
                 <div className="edit-form__field">
                     <label htmlFor="editOpponent">Opponent</label>
@@ -89,7 +120,8 @@ export const EditGameForm: React.FC<EditGameFormProps> = ({ game }) => {
                         onChange={handleInputChange}>
                     </input>
                 </div>
-                <button type="submit">Submit</button>
+                {error && <p>{getErrors().map(m => <p>{m}</p>)}</p>}
+                {!error && <button type="submit">Submit</button>}
             </form>
         </>
     )

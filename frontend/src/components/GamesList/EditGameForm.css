@@ -17,6 +17,7 @@
 }
 
 .edit-form button {
+    width: 20vw;
     padding: 10px;
-    margin: 10px;
+    margin: 20px 0 20px;
 }

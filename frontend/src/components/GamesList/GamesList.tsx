@@ -19,7 +19,6 @@ export const GamesList: React.FC = (): any => {
             const games = await fetch('http://localhost:5172/api/ChessGame');
             const gamesJson = (await games.json()) as Game[];
             setGames(gamesJson);
-            console.log(gamesJson);
         }
         fetchGames();
     }, [])

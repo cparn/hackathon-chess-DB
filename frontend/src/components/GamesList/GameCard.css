@@ -2,10 +2,14 @@
     width: 60vw;
     border: 1px solid grey;
     margin: 30px 0 0;
+    border-radius: 10px;
+    background-color: rgb(244, 244, 244);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
 }
 
 .game-card h3 {
     margin-top: -35px;
+    padding-top:10px;
 }
 
 .game-card__edit {
