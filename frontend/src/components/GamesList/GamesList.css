@@ -1,0 +1,12 @@
+.games-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 500px;
+}
+
+.games-list a {
+    font-weight: 500;
+    color: #000000;
+    text-decoration: inherit;
+  }

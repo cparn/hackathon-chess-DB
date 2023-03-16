@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { GameCard } from "./GameCard";
+import './GamesList.css';
 
 export type Game = {
     gameId: number,
@@ -24,10 +24,12 @@ export const GamesList: React.FC = (): any => {
         fetchGames();
     }, [])
     return (
-        games.map(g => {
-            return (
-                <GameCard game={g} />)
-        })
+        <div className="games-list">
+            {games.map(g => {
+                return (
 
+                    <GameCard game={g} />)
+            })}
+        </div>
     )
 }
