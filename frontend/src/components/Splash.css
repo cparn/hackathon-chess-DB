@@ -1,0 +1,24 @@
+.splash-card {}
+
+.splash-card h2 {
+    margin: 80px 0;
+    font-size: 3em;
+}
+
+.splash-media {
+    text-align: left;
+    width: 50vw;
+}
+
+.splash-media h3{
+    font-size: 1.8em;
+    border-bottom: 1px solid grey;
+}
+.splash-media p{
+    font-size: 1.5em;
+}
+
+.splash-media div {
+
+
+}
