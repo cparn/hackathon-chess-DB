@@ -11,10 +11,6 @@ type FormState = {
     gamePGN: string
 }
 
-type GameRequest = {
-
-}
-
 export const AddGame = () => {
     const [error, setError] = useState(false);
     const [formState, setFormState] = useState<FormState>({

@@ -68,10 +68,12 @@ export const GameCard: React.FC<GameCardProps> = ({ game, putGame, deleteGame })
                     <img onClick={onDeleteClick} className="game-card__delete" src="delete.svg" />
                     <img onClick={onEditClick} className="game-card__edit" src="edit.svg" />
                     <h3>{game.opponent}</h3>
-                    <h4>Location:</h4>
-                    <p>{game.location}</p>
-                    <h4>Date:</h4>
-                    <p>{game.date}</p>
+                    <div className="game-card--info">
+                        <h4>Location:</h4>
+                        <p>{game.location}</p>
+                        <h4>Date:</h4>
+                        <p>{game.date}</p>
+                    </div>
                 </div>
             </Link>)
     } else {
