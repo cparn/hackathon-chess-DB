@@ -6,6 +6,7 @@ export type Game = {
     gameId: number,
     opponent: string,
     date: string,
+    location: string,
     gamePGN: string,
     comments: string
 }

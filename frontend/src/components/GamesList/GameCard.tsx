@@ -14,7 +14,7 @@ export const GameCard: React.FC<GameCardProps> = ({ game }) => {
             <div className='game-card'>
                 <h3>{game.opponent}</h3>
                 <p>Played at:</p>
-                <p>{game.</p>
+                <p>{game.location}</p>
             </div>
         </Link>)
 }
