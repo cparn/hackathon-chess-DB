@@ -14,3 +14,8 @@
     left: 45%;
     top: 10px;
 }
+
+.game-card__edit:hover {
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(200deg) brightness(118%) contrast(119%);
+    /* filter: sepia(100%) hue-rotate(190deg) saturate(900%); */
+}
