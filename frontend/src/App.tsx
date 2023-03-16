@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import './App.css'
-import { initialGame } from './chessEngine';
 import { About } from './components/About';
-import { Board } from './components/Chess/Board';
 import { ChessInterface } from './components/Chess/ChessInterface';
 import { GamesList } from './components/GamesList/GamesList';
 import { Navbar } from './components/Navbar';
+import { AddGame } from './components/AddGame';
 import { Splash } from './components/Splash';
 
 function App() {
@@ -17,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Splash />} />
         <Route path="/games" element={<GamesList />} />
+        <Route path="add" element={<AddGame />} />
         <Route path="/about" element={<About />} />
         <Route path="/game-viewer" element={<ChessInterface />} />
       </Routes>

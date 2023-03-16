@@ -1,0 +1,36 @@
+.addgame-card {
+    width: 80vw;
+    max-width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.addgame-card input {
+    width: 70%;
+}
+
+.addgame-card__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.addgame-card__field {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    margin: 5px 5px;
+}
+
+.addgame-card button {
+    width: 20vw;
+    padding: 10px;
+    margin: 20px 0 20px;
+}
+
+.addgame-card__field--pgn {
+    height: 100px;
+    width: 70%;
+}

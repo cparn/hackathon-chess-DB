@@ -29,12 +29,16 @@ export const GamesList: React.FC = (): any => {
         newArr[i] = putgame;
         setGames(newArr);
     }
+    const deleteGame = async (gameId: number) => {
+        
+
+    }
 
     return (
         <div className="games-list">
             {games.map(g => {
                 return (
-                    <GameCard game={g} putGame={putGame} />)
+                    <GameCard game={g} putGame={putGame} deleteGame={deleteGame} />)
             })}
         </div>
     )

@@ -1,7 +1,7 @@
 .chess-interface__history {
     display: grid;
     grid-template-columns: 10% 45% 45%;
-    max-height: 400px;
+    max-height: 419px;
     overflow-y: scroll;
     width: 20vw;
     background-color: white;

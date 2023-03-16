@@ -1,5 +1,7 @@
 .game-card {
     width: 60vw;
+    max-width: 700px;
+    min-height: 200px;
     border: 1px solid grey;
     margin: 30px 0 0;
     border-radius: 10px;
@@ -15,7 +17,7 @@
 .game-card__edit {
     position: relative;
     width: 40px;
-    left: 45%;
+    left: 42%;
     top: 10px;
 }
 
@@ -23,6 +25,17 @@
     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(200deg) brightness(118%) contrast(119%);
 }
 
+.game-card__delete {
+    position: relative;
+    width: 30px;
+    left: 40%;
+    top: 1px;
+}
+
+.game-card__delete:hover {
+    filter: invert(48%) sepia(79%) saturate(24076%) hue-rotate(350deg) brightness(118%) contrast(119%);
+}
+
 .success-message {
-    margin:100px 0;
+    margin: 100px 0;
 }

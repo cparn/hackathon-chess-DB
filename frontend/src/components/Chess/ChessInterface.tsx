@@ -12,6 +12,13 @@ export const ChessInterface = () => {
 
     const location = useLocation();
     const data: Game = location.state?.data;
+    if (data == null) return (
+        <div>
+            <h1>404</h1>
+            <h2>The developer didn't have time to route this properly</h2>
+            <h3>Try to access games from the Games page</h3>
+        </div>
+    );
 
     const [game, setGame] = useState(data.gamePGN);
     const [iterator, setIterator] = useState(0);

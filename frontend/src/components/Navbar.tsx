@@ -9,6 +9,7 @@ export const Navbar: React.FC = () => {
             <div className='navbar'>
                 <Link to="/">Home</Link>
                 <Link to="/games">Games</Link>
+                <Link to="/add">Add Game</Link>
                 <Link to="/about">About</Link>
             </div>
         </header>
