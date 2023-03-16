@@ -26,7 +26,7 @@ namespace backend.Controllers
             return await _context.ChessGame.ToListAsync();
         }
 
-        
+
         [HttpGet("{id}")]
         public async Task<ActionResult<ChessGame>> GetChessGame(int id)
         {
@@ -43,6 +43,8 @@ namespace backend.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutChessGame(int id, ChessGame chessGame)
         {
+            Response.Headers.Add("Access-Control-Allow-Origin", "\"*\"");
+            Response.Headers.Add("Access-Control-Allow-Credentials", "true");
             if (id != chessGame.GameId)
             {
                 return BadRequest();
