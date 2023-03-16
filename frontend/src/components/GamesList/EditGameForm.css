@@ -1,7 +1,12 @@
 .edit-form {
+    color: #141c54;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.edit-form h3 {
+    margin-bottom: 10px;
 }
 
 .edit-form__field {

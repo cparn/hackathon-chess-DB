@@ -39,7 +39,7 @@ export const AddGame = () => {
     }
 
     return (
-        <main className="addgame-card">
+        <div className="addgame-card">
             <h2>Add game</h2>
             <form className="addgame-card__form" onSubmit={handleSubmit}>
                 <div className="addgame-card__field">
@@ -98,6 +98,6 @@ export const AddGame = () => {
                     < ChessInterface optpgn={formState.gamePGN} />
                 </div>
             }
-        </main>
+        </div>
     )
 }

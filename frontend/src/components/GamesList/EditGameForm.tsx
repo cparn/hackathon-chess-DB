@@ -88,8 +88,8 @@ export const EditGameForm: React.FC<EditGameFormProps> = ({ game, putGame, onSuc
 
     return (
         <>
-            <h3>Edit game info</h3>
             <form className="edit-form" onSubmit={handleSubmit}>
+                <h3>Edit game info</h3>
                 <div className="edit-form__field">
                     <label htmlFor="editOpponent">Opponent</label>
                     <input id="editOpponent"

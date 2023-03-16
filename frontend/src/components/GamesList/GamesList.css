@@ -3,11 +3,12 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 0 500px;
+    margin-bottom: 200px;
 }
 
 .games-list a {
     font-weight: 500;
-    color: #000000;
+    color: #141c54;
     text-decoration: inherit;
 }
 

@@ -4,6 +4,7 @@
 
 .inactive {
     color: lightgrey;
+    background-color: rgb(231, 230, 234);
     cursor: not-allowed;
     pointer-events: none;
     user-select: none;

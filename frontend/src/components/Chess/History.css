@@ -3,9 +3,11 @@
     grid-template-columns: 10% 45% 45%;
     height: fit-content;
     max-height: 419px;
+    max-width: 300px;
     overflow-y: scroll;
     width: 20vw;
-    background-color: white;
+    background-color: rgb(237, 229, 239);
+    color: rgb(8, 22, 34);
     box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 10px 5px;
