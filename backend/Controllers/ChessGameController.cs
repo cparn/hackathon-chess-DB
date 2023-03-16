@@ -20,14 +20,13 @@ namespace backend.Controllers
             _context = context;
         }
 
-        // GET: api/ChessGame
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ChessGame>>> GetChessGame()
         {
             return await _context.ChessGame.ToListAsync();
         }
 
-        // GET: api/ChessGame/5
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<ChessGame>> GetChessGame(int id)
         {
@@ -41,8 +40,6 @@ namespace backend.Controllers
             return chessGame;
         }
 
-        // PUT: api/ChessGame/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutChessGame(int id, ChessGame chessGame)
         {
@@ -72,8 +69,6 @@ namespace backend.Controllers
             return NoContent();
         }
 
-        // POST: api/ChessGame
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<ChessGame>> PostChessGame(ChessGameRequest gameRequest)
         {
@@ -87,10 +82,9 @@ namespace backend.Controllers
             var response = _context.ChessGame.Add(newGame);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetChessGame", new { id = response.Entity.GameId }, response.Entity);
+            return CreatedAtAction(nameof(GetChessGame), new { id = response.Entity.GameId }, response.Entity);
         }
 
-        // DELETE: api/ChessGame/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteChessGame(int id)
         {
