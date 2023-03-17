@@ -31,7 +31,8 @@ export const GameCard: React.FC<GameCardProps> = ({ game, putGame, deleteGame })
         const delResponse = await fetch(`http://localhost:5172/api/ChessGame/${game.gameId}`, {
             method: 'DELETE',
         });
-        await onSuccess();
+        // await onSuccess();
+        setDel(false);
         deleteGame(game.gameId);
     }
     const onSuccess = async () => {
